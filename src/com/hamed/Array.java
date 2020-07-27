@@ -12,6 +12,12 @@ public class Array<T> {
         return (T[]) new Object[length];
     }
 
+    public void print() {
+        for (int i = 0; i < count; i++) {
+            System.out.println(items[i]);
+        }
+    }
+
     public void insert(T item) {
         if (isFull())
             resize();
