@@ -43,6 +43,10 @@ public class Array<T> {
         return -1;
     }
 
+    public int size() {
+        return count;
+    }
+
     private void resize() {
         var newItems = initialItems(count * 2);
         for (int i = 0; i < count; i++)
