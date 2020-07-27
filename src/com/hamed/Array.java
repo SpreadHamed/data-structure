@@ -35,6 +35,13 @@ public class Array<T> {
         count--;
     }
 
+    public int indexOf(T item) {
+        for (int i = 0; i < count; i++)
+            if (item.equals(items[i]))
+                return i;
+
+        return -1;
+    }
 
     private void resize() {
         var newItems = initialItems(count * 2);
