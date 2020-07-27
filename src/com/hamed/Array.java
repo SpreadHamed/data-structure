@@ -19,6 +19,17 @@ public class Array<T> {
         items[count++] = item;
     }
 
+    public void removeAt(int index) {
+        if (index < 0 || index >= count)
+            throw new IllegalArgumentException();
+
+        for (var i = index; i < count - 1; i++)
+            items[i] = items[i + 1];
+
+        count--;
+    }
+
+
     private void resize() {
         var newItems = initialItems(count * 2);
         for (int i = 0; i < count; i++)
