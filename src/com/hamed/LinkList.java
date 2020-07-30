@@ -135,4 +135,24 @@ public class LinkList<T> {
         first = previous;
     }
 
+    public T findKthFromTheEnd(int k) {
+        if (isEmpty())
+            throw new IllegalStateException();
+
+        if (k <= 0 || k > size)
+            throw new IllegalArgumentException();
+
+        var a = first;
+        var b = first;
+
+        for (int i = 0; i < k - 1; i++)
+            b = b.next;
+
+        while (b != last) {
+            b = b.next;
+            a = a.next;
+        }
+
+        return a.value;
+    }
 }
