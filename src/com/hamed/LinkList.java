@@ -103,4 +103,16 @@ public class LinkList<T> {
         return null;
     }
 
+    public T[] toArray() {
+        var array = (T[]) new Object[size];
+        var current = first;
+        int index = 0;
+        while (current != null) {
+            array[index++] = current.value;
+            current = current.next;
+        }
+
+        return array;
+    }
+
 }
