@@ -1,5 +1,7 @@
 package com.hamed;
 
+import java.util.NoSuchElementException;
+
 public class LinkList<T> {
     private class Node {
         T value;
@@ -60,5 +62,20 @@ public class LinkList<T> {
 
     public boolean contains(T value) {
         return indexOf(value) != -1;
+    }
+
+    public void removeFirst() {
+        if (isEmpty())
+            throw new NoSuchElementException();
+
+        if (first == last) {
+            first = last = null;
+        } else {
+            var second = first.next;
+            first.next = null;
+            first = second;
+        }
+
+        size--;
     }
 }
