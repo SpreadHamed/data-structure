@@ -43,4 +43,18 @@ public class LinkList<T> {
         }
         size++;
     }
+
+    public int indexOf(T value) {
+        int index = 0;
+        var current = first;
+        while (current != null) {
+            if (current.value.equals(value))
+                return index;
+
+            index++;
+            current = current.next;
+        }
+
+        return -1;
+    }
 }
