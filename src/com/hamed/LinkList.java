@@ -78,4 +78,29 @@ public class LinkList<T> {
 
         size--;
     }
+
+    public void removeLast() {
+        if (isEmpty())
+            throw new NoSuchElementException();
+
+        if (first == last) {
+            first = last = null;
+        } else {
+            last = getPrevious(last);
+            last.next = null;
+        }
+
+        size--;
+    }
+
+    private Node getPrevious(Node node) {
+        var previous = first;
+        while (previous != null) {
+            if (previous.next == node)
+                return previous;
+            previous = previous.next;
+        }
+        return null;
+    }
+
 }
